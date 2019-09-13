@@ -23,16 +23,18 @@ public class main {
         final String string = "while(i<4){\n"
                 + "	 if(){\n"
                 + "	}\n"
-                + "}";
+                + "}" +
+                " for (int i = 1; i <= matcher.groupCount(); i++) {\n" +
+                "        System.out.println(\"Group \" + i + \": \" + matcher.group(i));\n" +
+                "    }";
 
         final Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
         final Matcher matcher = pattern.matcher(string);
 
-        if (matcher.find()) {
+        while (matcher.find()) {
             System.out.println("Full match: " + matcher.group(0));
-            for (int i = 1; i <= matcher.groupCount(); i++) {
-                System.out.println("Group " + i + ": " + matcher.group(i));
-            }
+                System.out.println("Group :"  + matcher.group(2));
+
         }
 
     }
